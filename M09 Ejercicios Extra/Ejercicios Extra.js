@@ -6,6 +6,12 @@ function deObjetoAarray(objeto) {
    // Estos elementos debe ser cada par clave:valor del objeto recibido.
    // [EJEMPLO]: {D: 1, B: 2, C: 3} ---> [['D', 1], ['B', 2], ['C', 3]].
    // Tu código
+   var arregloP = [];
+   
+   for (const clave in objeto) {
+      arregloP.push(arregloH = [clave, objeto[clave]]);   
+   }
+   return arregloP;
    
 }
 
@@ -21,8 +27,8 @@ function numberOfCharacters(string) {
    var a=0, b=0, c=0, d=0, e=0, f=0, g=0, h=0, i=0, j=0, k=0, l=0, m=0, n=0, o=0, p=0, q=0, r=0, s=0, t=0, u=0, v=0, w=0, x=0, y=0, z= 0;
    var obj = {};
    for (let is = 0; is < array.length; is++) {
-   //   obj.array[is] = array[is] + 1;
-      switch (array[is]) {
+   //   obj.array[is] = array[is] + 1;    // Entiendo que debe haber alguna manera de armarlo parecido a esto.
+      switch (array[is]) {                // se que este bloque de codigo no es lo mas optimo del mundo pero funciona :)
          case "a": 
             a++; 
             obj.a = a;    
@@ -140,6 +146,20 @@ function capToFront(string) {
    // Retornar el string.
    // [EJEMPLO]: soyHENRY ---> HENRYsoy
    // Tu código:
+   arrayMA = [];
+   arrayMI = [];
+   
+   for (let i = 0; i < string.length; i++) {
+      if (string[i] === string[i].toUpperCase()) {
+         arrayMA.push(string[i]);
+      } else {
+         arrayMI.push(string[i]);  
+      }
+   }
+   var may = arrayMA.join("");
+   var min = arrayMI.join("");
+   return may + min;
+
 }
 
 function asAmirror(frase) {
@@ -147,10 +167,23 @@ function asAmirror(frase) {
    // que el orden de las palabras sea el mismo.
    // La diferencia es que cada palabra estará escrita al inverso.
    // [EJEMPLO]: "The Henry Challenge is close!"  ---> "ehT yrneH egnellahC si !esolc"
-   // Tu código:
+   // Tu código: 
+   var array = [];
+   var newStr = "";
 
-
-
+   for (let i = 0; i < frase.length; i++) {
+      if (i === frase.length-1) {
+         array.unshift(frase[i]);
+         newStr = newStr + array.join("") + " ";
+      }
+      if (frase[i] != " "){
+         array.unshift(frase[i]);
+      }else {
+         newStr = newStr + array.join("") + " ";
+         array = [];
+      }
+   }
+   return newStr.trim();
 }
 
 function capicua(numero) {
